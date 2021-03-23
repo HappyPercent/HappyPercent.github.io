@@ -1,0 +1,414 @@
+@font-face {
+  font-family: "Century Gothic";
+  src: url("./Century\ Gothic.ttf");
+}
+
+*,
+*::after,
+*::before,
+a,
+button {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Century Gothic", sans-serif;
+}
+
+body {
+  background-color: #222222;
+  overflow: hidden;
+  color: #838785;
+}
+
+.check {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2a2c2de0;
+  z-index: 10;
+}
+
+.check img {
+  width: 80%;
+  height: 80%;
+}
+
+.main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flex_centered {
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  margin-top: 40px;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  margin: 0 20px;
+}
+
+.body__left {
+  height: 350px;
+  width: 350px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  margin-right: 100px;
+  position: relative;
+}
+
+.start {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: grey;
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: white;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.unclickable {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.picture {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.show {
+  animation: 0.25s show ease-in-out;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: scale(80%);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(100%);
+  }
+}
+
+.body__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.input_block {
+  display: flex;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.answer {
+  position: relative;
+  width: 400px;
+  background-color: transparent;
+  border-bottom: 1px solid #fff;
+  font-size: 25px;
+  line-height: 50px;
+  outline: none;
+  caret-color: #fff;
+  color: inherit;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  left: 0;
+}
+
+.answer_wrong {
+  animation: 0.1s tremor ease-in-out 5;
+}
+
+@keyframes tremor {
+  0% {
+    left: 0;
+  }
+  25% {
+    left: -10px;
+  }
+  75% {
+    left: 10px;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+.answer_ready {
+  animation: 0.4s jump ease-in-out 1;
+}
+
+@keyframes jump {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: -10px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.icon__repeat {
+  transform: rotate(90deg);
+  margin: 0 15px;
+}
+
+.icon__next {
+  transform: rotate(90deg);
+}
+
+.icon_disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.speed_selection {
+  margin: 20px 0;
+  color: white;
+  width: 400px;
+}
+
+.speed_numbers {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 3px;
+  font-size: 16px;
+}
+
+.speed_input {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 5px;
+  background: #fff;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  margin: 40px 0;
+}
+
+.speed_input:hover {
+  opacity: 1;
+}
+
+.speed_input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: yellow;
+  cursor: pointer;
+}
+
+.speed_name {
+  font-size: 16px;
+}
+
+.footer {
+  justify-content: space-around;
+  margin: 20px 45px 20px;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.footer_letter {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.footer_image {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  height: 100px;
+  width: 100px;
+  border: 2px solid white;
+  border-radius: 50%;
+  z-index: 3;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  display: none;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.footer_letter:hover {
+  color: orange;
+  transition: all 0.1s;
+}
+
+.footer_letter:hover .footer_image {
+  display: block;
+}
+
+.sad_message {
+  background-color: #fff;
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.top {
+  z-index: 5;
+}
+
+#А {
+  background-image: url("img/letters/1.jpg");
+}
+#Б {
+  background-image: url("img/letters/2.jpg");
+}
+#В {
+  background-image: url("img/letters/3.jpg");
+}
+#Г {
+  background-image: url("img/letters/4.jpg");
+}
+#Д {
+  background-image: url("img/letters/5.gif");
+}
+#Ё {
+  background-image: url("img/letters/6.gif");
+}
+#Е {
+  background-image: url("img/letters/7.jpg");
+}
+#Ж {
+  background-image: url("img/letters/8.jpg");
+}
+#З {
+  background-image: url("img/letters/9.gif");
+}
+#И {
+  background-image: url("img/letters/10.jpg");
+}
+#Й {
+  background-image: url("img/letters/11.gif");
+}
+#К {
+  background-image: url("img/letters/12.gif");
+}
+#Л {
+  background-image: url("img/letters/13.jpg");
+}
+#М {
+  background-image: url("img/letters/14.jpg");
+}
+#Н {
+  background-image: url("img/letters/15.jpg");
+}
+#О {
+  background-image: url("img/letters/16.jpg");
+}
+#П {
+  background-image: url("img/letters/17.jpg");
+}
+#Р {
+  background-image: url("img/letters/18.jpg");
+}
+#С {
+  background-image: url("img/letters/19.jpg");
+}
+#Т {
+  background-image: url("img/letters/20.jpg");
+}
+#У {
+  background-image: url("img/letters/21.jpg");
+}
+#Ф {
+  background-image: url("img/letters/22.jpg");
+}
+#Х {
+  background-image: url("img/letters/23.jpg");
+}
+#Ц {
+  background-image: url("img/letters/24.gif");
+}
+#Ч {
+  background-image: url("img/letters/25.jpg");
+}
+#Ш {
+  background-image: url("img/letters/26.jpg");
+}
+#Щ {
+  background-image: url("img/letters/27.gif");
+}
+#Ь {
+  background-image: url("img/letters/28.gif");
+}
+#Ы {
+  background-image: url("img/letters/29.jpg");
+}
+#Ъ {
+  background-image: url("img/letters/30.gif");
+}
+#Э {
+  background-image: url("img/letters/31.jpg");
+}
+#Ю {
+  background-image: url("img/letters/32.jpg");
+}
+#Я {
+  background-image: url("img/letters/33.jpg");
+}
