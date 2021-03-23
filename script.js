@@ -1,4 +1,7 @@
 (async () => {
+  if (window.location.origin !== "happypercent.github.io") {
+    return;
+  }
   let words;
   await fetch("./words.json")
     .then((res) => res.json())
@@ -83,7 +86,7 @@
     if (data.format === "mp4") {
       elem.setAttribute("muted", "");
       elem.setAttribute("playsinline", "");
-      elem.setAttribute("controls", "");
+      // elem.setAttribute("controls", "");
       elem.preload = "auto";
       elem.currentTime = 0;
       elem.onloadeddata = () => {
