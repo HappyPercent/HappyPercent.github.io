@@ -1,5 +1,5 @@
 (async () => {
-  if (window.location.origin !== "happypercent.github.io") {
+  if (window.location.hostname !== "happypercent.github.io") {
     return;
   }
   let words;
