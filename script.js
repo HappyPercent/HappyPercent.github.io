@@ -71,10 +71,15 @@
 
   function onLoad(order) {
     loadedImages.add(order);
+    console.log("-> loadedImages.size", loadedImages.size);
     if (loadedImages.size === 33) {
       startElem.classList.remove("unclickable");
     }
   }
+
+  setTimeout(() => {
+    startElem.classList.remove("unclickable");
+  }, 5000)
 
   for (const data of alphabetData) {
     const elem = document.createElement(
